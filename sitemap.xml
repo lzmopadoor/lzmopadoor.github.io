@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://pispub.eu.org/categories/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://pispub.eu.org/box/gallery/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
@@ -38,16 +29,7 @@
   </url>
   
   <url>
-    <loc>https://pispub.eu.org/box/animation/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pispub.eu.org/personal/about/index.html</loc>
+    <loc>https://pispub.eu.org/categories/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -65,16 +47,7 @@
   </url>
   
   <url>
-    <loc>https://pispub.eu.org/life/movies/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pispub.eu.org/site/census/index.html</loc>
+    <loc>https://pispub.eu.org/box/animation/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -92,7 +65,25 @@
   </url>
   
   <url>
+    <loc>https://pispub.eu.org/life/movies/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://pispub.eu.org/life/music/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pispub.eu.org/site/census/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -120,6 +111,15 @@
   
   <url>
     <loc>https://pispub.eu.org/social/fcircle/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pispub.eu.org/personal/about/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
