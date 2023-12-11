@@ -6,7 +6,7 @@
   <link href="https://pispub.eu.org/atom.xml" rel="self"/>
   
   <link href="https://pispub.eu.org/"/>
-  <updated>2023-12-07T15:32:26.086Z</updated>
+  <updated>2023-12-11T11:57:41.930Z</updated>
   <id>https://pispub.eu.org/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySql面试题--事务</title>
+    <title>Mysql--事务(2)</title>
+    <link href="https://pispub.eu.org/posts/fbcbad01.html"/>
+    <id>https://pispub.eu.org/posts/fbcbad01.html</id>
+    <published>2023-12-09T12:35:51.000Z</published>
+    <updated>2023-12-11T11:57:41.930Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Read-View在MVCC里如何工作"><a href="#Read-View在MVCC里如何工作" class="headerlink" title="Read View在MVCC里如何工作"></a>Read View在MVCC里如何工作</h1><ul><li>首先在 Read View中有四个重要字段，<br><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/mysql/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/readview%E7%BB%93%E6%9E%84.drawio.png" alt="code"></li></ul><ol><li>creator_trx_id: 指的是创建该Read View的事务的事务id。</li><li>m_ids: 指的是在创建Read View时，当前数据库中活跃且未提交的事务id列表。</li><li>min_trx_id: 创建Read View时，当前数据库中活跃且未提交事务中事务id最小的事务，也就是m_ids中的最小值。</li><li>max_trx_id: 这个并不是m_ids的最大值，而是创建Read View时当前数据库中应该给下一个事务的id值。</li></ol><p>聚簇索引的两个隐藏列：</p><ol><li>trx_id: 当一个事务对某条聚簇索引记录发生改动时，就会把该事务的事务id记录在trx_id隐藏列中</li><li>roll_pointer: 每次对某条聚簇索引记录进行改动时，就会把旧版本的记录写入到undo log中，这个隐藏列是一个指针，可以通过它找到修改前的记录。</li></ol>]]></content>
+    
+    
+    <summary type="html">🐱‍💻事务--Read View在MVCC里如何工作</summary>
+    
+    
+    
+    <category term="数据库" scheme="https://pispub.eu.org/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="mySql" scheme="https://pispub.eu.org/tags/mySql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql--事务</title>
     <link href="https://pispub.eu.org/posts/fbcbad03.html"/>
     <id>https://pispub.eu.org/posts/fbcbad03.html</id>
     <published>2023-11-18T16:40:25.000Z</published>
-    <updated>2023-12-07T15:32:26.086Z</updated>
+    <updated>2023-12-09T12:33:00.052Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1-数据库事务及其特性"><a href="#1-数据库事务及其特性" class="headerlink" title="1.数据库事务及其特性"></a>1.数据库事务及其特性</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ul><li>数据库事务是指一系列数据库操作被视为一个单独的逻辑单元，要么全部成功执行，要么全部失败回滚。事务的目的是确保数据的完整性和一致性，即使在多个并发访问的情况下也保证数据的正确性。</li><li>在数据库种，事务通常由以下四个属性组成，即为ACID</li></ul><ol><li>原子性：一个事务中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节，而且如果有出错，就会通过undo log回滚到事务开始前的状态。</li><li>一致性：一个事务在操作前和操作后，数据满足完整性约束，数据库保持一致性状态。eg：用户A转账200给用户B，A+B的总钱数不变。</li><li>隔离性：数据库允许多个并发同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致，因为多个事务同时使用相同的数据时，</li></ol>              </div>            </details>]]></content>
+    <content type="html"><![CDATA[<h1 id="数据库事务及其特性"><a href="#数据库事务及其特性" class="headerlink" title="数据库事务及其特性"></a>数据库事务及其特性</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ul><li>数据库事务是指一系列数据库操作被视为一个单独的逻辑单元，要么全部成功执行，要么全部失败回滚。事务的目的是确保数据的完整性和一致性，即使在多个并发访问的情况下也保证数据的正确性。</li><li>在数据库中，事务通常由以下四个属性组成，即为ACID</li></ul><ol><li>原子性：一个事务中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节，而且如果有出错，就会通过undo log回滚到事务开始前的状态。</li><li>一致性：一个事务在操作前和操作后，数据满足完整性约束，数据库保持一致性状态。eg：用户A转账200给用户B，A+B的总钱数不变。</li><li>隔离性：数据库允许多个并发同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致，因为多个事务同时使用相同的数据时，不会相互干扰，每个事务都有一个完整的数据空间，对其他并发事务是隔离的。</li><li>持久性：事务处理结束后，对数据的修改就是永久的，即使系统故障也不会丢失。</li></ol>              </div>            </details><h1 id="InnoDB引擎是通过什么技术来保证事务的四个特性呢？"><a href="#InnoDB引擎是通过什么技术来保证事务的四个特性呢？" class="headerlink" title="InnoDB引擎是通过什么技术来保证事务的四个特性呢？"></a>InnoDB引擎是通过什么技术来保证事务的四个特性呢？</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ol><li>持久性：是通过redo log(重做日志)来保证的；</li><li>原子性：是通过undo log(回滚日志)来保证的；</li><li>隔离性：是通过MVCC(多版本并发控制)或锁机制来保证；</li><li>一致性：是通过持久性，原子性，隔离性来保证的。</li></ol>              </div>            </details><h1 id="并发事务会引发什么问题？"><a href="#并发事务会引发什么问题？" class="headerlink" title="并发事务会引发什么问题？"></a>并发事务会引发什么问题？</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ul><li>MySQL服务器是允许多个客户端连接的，意味着MySQL会出现同时处理多个事务的情况。那么在同时处理多个事务的时候，就可能出现脏读，不可重复读，幻读。</li></ul><ol><li>脏读：如果一个事务读到另一个未提交事务修改过的数据，就意味着发生了脏读现象。</li><li>不可重复读： 在一个事务内连续多次读取同一个数据，如果出现前后两次读取到的数据不一致的情况，就意味着发生了不可重复读现象。</li><li>幻读： 在一个事务内多次查询某个符合条件的记录数量，如果出现前后两次查询到的记录数量不一样的情况，就意味着发生了幻读现象。</li></ol>              </div>            </details><h1 id="事务的隔离级别有哪些？"><a href="#事务的隔离级别有哪些？" class="headerlink" title="事务的隔离级别有哪些？"></a>事务的隔离级别有哪些？</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ul><li>隔离级别应对的现象</li></ul><ol><li>脏读：读到事务未提交的数据</li><li>不可重复读：事务读取数据前后数据不一样</li><li>幻读：前后读取记录的数量不一致</li></ol><ul><li>SQL提出了四种隔离级别来规避这些现象，隔离级别越高，性能约低</li></ul><ol><li>读未提交：指一个事务还没提交时，它做的变更就能被其他事务看到</li><li>读提交：指一个事务提交之后，它做的变更才能被其他事务看到</li><li>可重复读：指一个事务执行过程中看到的数据，一直跟事务启动时看到的数据一致。</li><li>串行化：会对记录上读写锁，在多个事务对这条记录进行读写操作时，如果发生读写冲突的时候，后访问到的事务必须等前一个事务执行完成，才能继续执行。<br>串行化&gt;可重复读&gt;读已提交&gt;读未提交</li></ol>              </div>            </details><h1 id="四种隔离级别具体如何实现？"><a href="#四种隔离级别具体如何实现？" class="headerlink" title="四种隔离级别具体如何实现？"></a>四种隔离级别具体如何实现？</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ol><li>对于读未提交隔离级别的事务来说，因为可以读到未提交事务修改的数据，所以之间读取新数据。</li><li>对于串行化隔离级别的事务来说，通过加读写锁的方式可以来并行访问。</li><li>对于读提交和可重复读隔离级别来说，它们是通过Read View来实现的，它们的区别在于创建Read View的时机不同。Read View相当于一个数据快照，读提交是在每个语句执行前都会重新生成一个Read View，而可重复读是启动事务时生成一个Read View，整个事务期间一直用这个Read<br>View。</li></ol><ul><li>注意，执行[开启事务]命令，并不意味着启动了事务，在MySQL有两种开启事务的命令，分别是：</li></ul><ol><li>begin/start transaction命令;</li><li>start transaction with consistent snapshot 命令;<br>这两种开启事务的命令，事务的启动时机是不同的：</li><li>执行了start transaction命令后，并不代表事务启动了。只有在执行这个命令后，执行了第一条select语句，才是事务真正启动的时机。</li><li>执行了start transaction with consistent snapshot命令，就会马上启动事务。</li></ol>              </div>            </details><h1 id="MySQL可重复读隔离级别完全解决幻读了吗？"><a href="#MySQL可重复读隔离级别完全解决幻读了吗？" class="headerlink" title="MySQL可重复读隔离级别完全解决幻读了吗？"></a>MySQL可重复读隔离级别完全解决幻读了吗？</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <p>没有完全解决幻读，例如以下两个场景</p><ol><li><p>在可重复读的隔离级别下，事务A第一次执行普通的select语句时生成了一个ReadView，之后事务B向表中新插入一条数据并提交，事务A对这条记录进行更新操作，这是trx_id隐藏列值就变成事务A的id，这时再select查询就可以看到这条记录了，就发生了幻读。所以认为MySQL InnoDB中的MVCC并不能完全避免幻读现象。</p></li><li><p>事务A先执行快照读语句得到记录数量，然后事务B插入一个记录并提交，事务A再执行当前读语句就看到了这条记录，也就发生了幻读。<br>要避免这类特殊场景下发生幻读的现象的话，就是尽量再开启事务之后，马上执行select……for update这类当前读的语句，因为它会对记录加next-key lock,从而避免其他事务插入一条新纪录。</p></li></ol>              </div>            </details>]]></content>
     
     
     <summary type="html">MySQL事务</summary>
