@@ -1119,7 +1119,7 @@ function createtime1() {
   var dnum = Math.floor(days);
 
   var ascll = [
-    `欢迎来到Fattiger🐯の小家!`,
+    `欢迎来到Modric🐯の小家!`,
     `Future is now 🍭🍭🍭`,
     `
         
@@ -1134,7 +1134,7 @@ function createtime1() {
     "小站已经苟活",
     dnum,
     "天啦!",
-    "©2023 By Fattiger",
+    "©2023 By Modric",
   ];
 
   setTimeout(
@@ -1173,7 +1173,7 @@ function createtime2() {
   setTimeout(
     console.warn.bind(
       console,
-      "%c ⚡ Powered by Fattiger🐯 %c 你正在访问Fattiger🐯の小家",
+      "%c ⚡ Powered by Modric🐯 %c 你正在访问Modric🐯の小家",
       "color:white; background-color:#f0ad4e",
       ""
     )
@@ -1283,8 +1283,8 @@ function share_() {
   try {
     // 截取标题
     var title = document.title;
-    var subTitle = title.endsWith("| Fattiger🐯") ? title.substring(0, title.length - 14) : title;
-    navigator.clipboard.writeText('Fattiger🐯的站内分享\n标题：' + subTitle + '\n链接：' + url + '\n欢迎来访！🍭🍭🍭');
+    var subTitle = title.endsWith("| Modric🐯") ? title.substring(0, title.length - 14) : title;
+    navigator.clipboard.writeText('Modric🐯的站内分享\n标题：' + subTitle + '\n链接：' + url + '\n欢迎来访！🍭🍭🍭');
     new Vue({
       data: function () {
         this.$notify({
@@ -3175,10 +3175,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://picbed.pispub.eu.org/img/robot.webp);
-    --darkmode-bg:url(https://picbed.pispub.eu.org/img/sea.webp);
-    --mobileday-bg: url(https://picbed.pispub.eu.org/img/night.webp);
-    --mobilenight-bg: url(https://picbed.pispub.eu.org/img/p1.webp);
+    --default-bg: url(https://picbed.modric.cn/img/robot.webp);
+    --darkmode-bg:url(https://picbed.modric.cn/img/sea.webp);
+    --mobileday-bg: url(https://picbed.modric.cn/img/night.webp);
+    --mobilenight-bg: url(https://picbed.modric.cn/img/p1.webp);
   }`;
 }
 // 切换背景主函数
