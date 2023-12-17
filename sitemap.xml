@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://modric.cn/charts/index.html</loc>
-    
-    <lastmod>2023-12-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://modric.cn/social/link/index.html</loc>
     
     <lastmod>2023-12-16</lastmod>
@@ -128,6 +119,15 @@
   </url>
   
   <url>
+    <loc>https://modric.cn/box/gallery/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://modric.cn/box/animation/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
@@ -137,7 +137,16 @@
   </url>
   
   <url>
-    <loc>https://modric.cn/box/gallery/index.html</loc>
+    <loc>https://modric.cn/life/movies/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://modric.cn/social/fcircle/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -156,24 +165,6 @@
   
   <url>
     <loc>https://modric.cn/life/music/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://modric.cn/social/fcircle/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://modric.cn/life/movies/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
