@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>HTTPS安全通信机制</title>
+      <link href="/posts/60ea4db0.html"/>
+      <url>/posts/60ea4db0.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="HTTPS安全通信机制"><a href="#HTTPS安全通信机制" class="headerlink" title="HTTPS安全通信机制"></a>HTTPS安全通信机制</h1><h2 id="RSA密钥加密-单向"><a href="#RSA密钥加密-单向" class="headerlink" title="RSA密钥加密(单向)"></a>RSA密钥加密(单向)</h2><p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/tls%E6%8F%A1%E6%89%8B.png" alt="code"></p><ul><li>TLS第一次握手</li></ul><ol><li>客户端通过发送Client Hello报文开始SSL通信，报文中包含TLS指定版本加密组件列表和生成的随机数Client Random<br><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/clienthello.png" alt="code"></li></ol><ul><li>TLS第二次握手</li></ul><ol><li>确认TLS版本是否支持，服务器可进行SSL通信时，会以Server Hello报文作为应答，报文中包含SSL指定版本和加密组件，加密组件是从接收到客户端报文里的加密组件列表中选一个出来，还会生成一个随机数Server Random，加密组件的基本形式为：密钥交换算法+签名算法+对称加密算法+摘要算法<br><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4@main/%E7%BD%91%E7%BB%9C/https/serverhello.png" alt="code"></li><li>服务器发送Certificate报文，报文内包含公钥证书</li><li>服务器发送Server Hello Done报文通知客户端服务器发送结束</li></ol><ul><li>TLS第三次握手</li></ul><ol><li>客户端验证完证书后会生成一个新的随机数pre-master,用服务器的RSA公钥加密该随机数（详见下文客户端服务端通信过程），通过Client Key Exchange报文传给服务端</li><li>服务端收到后，用RSA私钥解密，得到客户端发来的随机数，至此服务端和客户端都得到了三个随机数Client Random, Server Random, pre-master,通过这三次随机数去生成会话密钥，也就是对称密钥，用于后续HTTP请求/响应的加解密</li><li>然后客户端发送Change Cipher Spec, 告诉服务端开始使用加密方法发送消息，这一步之前传输的数据都是明文传输的，之后都是对称加密的密文</li><li>客户端发送Finished报文，把之前发送的数据做个摘要，再用会话密钥加密一下，让服务器做个验证，验证加密通信是否可用和之前的握手信息是否有被中途篡改过。</li><li>服务器也是同样发送Change Cipher Spec 和Finished报文验证，如果双方加解密都没有问题，则握手完成，从此处开始进行HTTP请求/响应<h3 id="客户端服务端通信过程"><a href="#客户端服务端通信过程" class="headerlink" title="客户端服务端通信过程"></a>客户端服务端通信过程</h3></li></ol><ul><li>服务端将自己的公钥登录到数字证书认证机构（CA），然后数字证书认证机构用自己的私钥对服务器公钥署数字签名并颁发公钥证书，数字证书权威机构已经将事先将其公钥植入到浏览器，然后客户端拿到服务器的公钥证书后用植入的权威机构公钥进行解密确认服务器公钥真实性，然后用服务器公钥加密后发送报文，服务器用私钥解密<h3 id="HTTPS使用的是混合加密机制"><a href="#HTTPS使用的是混合加密机制" class="headerlink" title="HTTPS使用的是混合加密机制"></a>HTTPS使用的是混合加密机制</h3></li><li>非对称密钥加密处理效率很低，所以通信时用对称加密，交换密钥才用非对称加密。<br>先使用非对称密钥加密方式安全的交换稍后对称密钥所需的密钥，然后确保密钥安全的前提下用对称加密进行通信。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTPS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis</title>
+      <link href="/posts/2b99bfbc.html"/>
+      <url>/posts/2b99bfbc.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="什么是缓存雪崩、击穿、穿透"><a href="#什么是缓存雪崩、击穿、穿透" class="headerlink" title="什么是缓存雪崩、击穿、穿透"></a>什么是缓存雪崩、击穿、穿透</h1><details class="folding-tag" cyan><summary>  </summary>              <div class='content'>              <ol><li>缓存雪崩： 如果是大量缓存在同一时间过期或者redis服务器宕机，导致大量的数据请求无法在Redis中处理，而直接去访问数据库，从而导致数据库压力剧增，严重可能会造成数据库宕机或者系统崩溃。</li></ol><ul><li>解决方法： </li><li>对于大量缓存在同时过期：①. 均匀设置过期时间（可以在原来过期时间上加上一个随机数） ②. 互斥锁（） ③. 后台更新缓存</li><li>对于redis服务器宕机：①. </li></ul>              </div>            </details>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL--日志</title>
       <link href="/posts/fbcbad04.html"/>
       <url>/posts/fbcbad04.html</url>
