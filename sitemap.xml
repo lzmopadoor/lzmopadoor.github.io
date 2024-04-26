@@ -137,24 +137,6 @@
   </url>
   
   <url>
-    <loc>https://modric.cn/life/games/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://modric.cn/box/gallery/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://modric.cn/box/animation/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
@@ -165,6 +147,24 @@
   
   <url>
     <loc>https://modric.cn/life/movies/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://modric.cn/life/games/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://modric.cn/box/gallery/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -221,14 +221,14 @@
   </url>
   
   <url>
-    <loc>https://modric.cn/tags/HTTPS/</loc>
+    <loc>https://modric.cn/tags/Redis/</loc>
     <lastmod>2024-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://modric.cn/tags/Redis/</loc>
+    <loc>https://modric.cn/tags/HTTPS/</loc>
     <lastmod>2024-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
